@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* الألوان العصرية المعتمدة: أخضر فاتح وبيج ناعم دافئ */
+        /* نظام الألوان الفاخر المعتمد: أخضر فاتح وبيج مع خانات شفافة */
         :root {
-            --bg-color: #f4f6f4; /* خلفية الموقع العامة أخضر فاتح هادئ */
-            --card-bg: #ffffff; /* بيضاء ناصعة للبطاقات لتظهر بوضوح إجباري */
-            --green-dark: #3a4d28; /* أخضر زيتي فاخر للنصوص والعناوين */
-            --gold-accent: #aa7c11; /* ذهبي عتيق للروابط والحواف */
-            --beige-light: #fbf9f4; /* بيج ناعم للأقسام الداخلية */
+            --bg-color: #f4f6f4; 
+            --card-transparent: rgba(255, 255, 255, 0.65); /* جعل البطاقات شفافة وأنيقة */
+            --green-dark: #3a4d28; 
+            --gold-accent: #aa7c11; 
+            --beige-light: rgba(251, 249, 244, 0.85); /* خانات شفافة ناعمة مائلة للبيج */
             --text-dark: #1e293b;
         }
 
@@ -23,11 +23,11 @@
             color: var(--text-dark);
         }
 
-        /* الهيدر واللوقو الأساسي */
+        /* الهيدر واللوقو */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: var(--beige-light);
+            background-color: #ffffff;
             border-bottom: 2px solid rgba(58, 77, 40, 0.1);
         }
 
@@ -63,13 +63,12 @@
             letter-spacing: 1px;
         }
 
-        /* قسم قصة البداية الحرة والمباشرة */
+        /* قسم قصة البداية الحرة */
         .story-section {
             padding: 40px 20px;
             text-align: center;
             background-color: #ffffff;
             border-bottom: 1px solid #edf2f7;
-            margin: 0 auto;
         }
 
         .story-section h2 {
@@ -93,7 +92,7 @@
             display: block;
         }
 
-        /* تصميم ظرف الرسالة التفاعلي لفتح المثال */
+        /* ظرف الرسالة التفاعلي للمعاينة */
         .envelope-container {
             margin: 20px auto;
             max-width: 325px;
@@ -101,7 +100,7 @@
         }
 
         .envelope-box {
-            background: linear-gradient(135deg, var(--beige-light) 0%, #ede8dc 100%);
+            background: linear-gradient(135deg, rgba(251, 249, 244, 0.9) 0%, rgba(237, 232, 220, 0.9) 100%);
             border: 2px solid var(--gold-accent);
             border-radius: 12px;
             padding: 20px;
@@ -110,12 +109,6 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            transition: transform 0.2s ease;
-        }
-
-        .envelope-box:hover {
-            transform: translateY(-3px);
-            border-color: var(--green-dark);
         }
 
         .envelope-icon {
@@ -128,7 +121,7 @@
             color: var(--green-dark);
         }
 
-        /* نافذة الرسالة التفاعلية عند فتحها */
+        /* نافذة الرسالة المنبثقة للرابط */
         .letter-modal {
             display: none;
             position: fixed;
@@ -140,7 +133,7 @@
         }
 
         .letter-paper {
-            background-color: var(--beige-light);
+            background-color: #ffffff;
             border: 2px solid var(--gold-accent);
             border-radius: 15px;
             padding: 30px 20px;
@@ -184,7 +177,7 @@
             color: #a0aec0;
         }
 
-        /* حاوية تنظيم المحتوى الرئيسي الحرة المتجاوبة */
+        /* حاوية تنظيم المحتوى الرئيسي */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -209,7 +202,7 @@
             font-size: 20px;
         }
 
-        /* أزرار التحكم بالمعرض */
+        /* أزرار التصفح الذكية للتبويب */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -228,7 +221,6 @@
             border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.2s ease;
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -253,18 +245,13 @@
         }
 
         .demo-card {
-            background-color: #ffffff;
+            background-color: var(--card-transparent); /* تفعيل ميزة الشفافية للنماذج */
             border: 1px solid rgba(58, 77, 40, 0.1);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease;
-        }
-
-        .demo-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--gold-accent);
+            backdrop-filter: blur(5px);
         }
 
         .demo-card img {
@@ -281,7 +268,7 @@
             font-size: 12px;
             color: var(--green-dark);
             font-weight: bold;
-            background-color: var(--beige-light);
+            background-color: rgba(251, 249, 244, 0.7);
         }
 
         .custom-note {
@@ -295,13 +282,14 @@
             font-weight: 500;
         }
 
-        /* قسم استمارة الطلب مستقل ومرئي */
+        /* تصميم استمارة الطلب بالخانات الشفافة (تم إصلاح عدم ظهورها) */
         .form-section {
-            background-color: var(--beige-light);
+            background-color: var(--card-transparent); /* جعل خلفية الاستمارة شفافة بالكامل */
             padding: 30px 25px;
             border-radius: 14px;
-            border: 1px solid rgba(74, 93, 47, 0.15);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(74, 93, 47, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            backdrop-filter: blur(10px); /* فلتر ضبابي ناعم تحت الشفافية */
             height: fit-content;
         }
 
@@ -322,8 +310,8 @@
             width: 100%;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid rgba(74, 93, 47, 0.2);
-            background-color: #ffffff;
+            border: 1px solid rgba(74, 93, 47, 0.25);
+            background-color: rgba(255, 255, 255, 0.8); /* حقول إدخال شفافة ناعمة مقروءة */
             color: #000000;
             box-sizing: border-box;
             font-size: 16px;
@@ -332,6 +320,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--green-dark);
+            background-color: #ffffff;
         }
 
         .btn-submit {
@@ -350,9 +339,70 @@
             gap: 10px;
         }
 
-        /* الخاتمة أسفل الصفحة */
         .beautiful-closing {
             text-align: center;
             padding: 45px 20px;
-            font-size: 1
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--green-dark);
+            font-style: italic;
+            background-color: #ffffff;
+            border-top: 1px solid #edf2f7;
+        }
+
+        /* نافذة التكبير الكبيرة المحسنة (Lightbox) لتعمل على الهواتف فوراً */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999; /* رفع حماية النافذة للأعلى لكي تظهر إجبارياً */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 92%;
+            max-height: 82%;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px; right: 25px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--green-dark);
+            font-size: 12px;
+            font-weight: bold;
+            border-top: 1px solid #edf2f7;
+            background-color: var(--beige-light);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="e-Invitation Logo">
+        </div>
+        <h1>e-Invitation</h1>
+        <p>DESIGNED BY Z & K</p>
+    </header>
+
+    <section class="story-section">
+        <h2>✨ حكايتنا وشغفنا</h2>
+        <p>
+            مرحباً بكم في عالمنا الخاص! مشروع <strong>e-Invitation</strong> هو ثمرة قصة حب وشغف جمعتنا كزوجين (Z & K). قررنا معاً أن ندمج لمستنا الفنية وخبرتنا التقنية لنحول مناسباتكم السعيدة إلى مواقع إلكترونية تفاعلية، عصرية وفاخرة تليق بأفراحكم.
+        </p>
+        <span class
 
