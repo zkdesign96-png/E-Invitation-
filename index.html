@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام ألوان ملكي فاخر مع تأثير الشفافية الزجاجية الداكنة */
+        /* نظام الألوان الفاخر المعتمد: أخضر فاتح وبيج مع تأثير الزجاج الشفاف */
         :root {
-            --bg-dark: #060b13; 
-            --gold-primary: #d4af37; 
-            --gold-secondary: #aa7c11; 
-            --text-light: #ffffff; 
-            --text-muted: #cbd5e1;
-            /* الشفافية والحدود الزجاجية الفاخرة المدعومة إجبارياً */
-            --glass-card: rgba(13, 22, 38, 0.75); 
+            --green-dark: #3a4d28; 
+            --gold-accent: #aa7c11; 
+            --gold-light: #d4af37;
+            --text-light: #ffffff;
+            --text-dark: #1e293b;
+            /* الشفافية الزجاجية الداكنة الفاخرة المعتمدة */
+            --glass-card: rgba(13, 22, 38, 0.78); 
             --glass-border: rgba(212, 175, 55, 0.3);
-            --blur-effect: blur(12px);
+            --blur-effect: blur(10px);
         }
 
         body {
@@ -23,28 +23,19 @@
             margin: 0;
             padding: 0;
             color: var(--text-light);
-            background-color: var(--bg-dark);
-        }
-
-        /* طبقة عزل خاصة ومستقلة لإجبار صورة الخلفية على الظهور دائماً خلف المحتوى */
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            /* تعيين الخلفية هنا مباشرة لضمان ظهور الصورة رغماً عن أي متصفح */
+            background-color: #060b13;
             background-image: url('background.png');
             background-repeat: repeat;
             background-position: center;
             background-size: 280px;
-            z-index: -10; /* وضعها في الخلفية العميقة */
         }
 
         /* الهيدر واللوقو زجاجي شفاف فاخر */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: rgba(6, 11, 19, 0.75) !important;
+            background-color: rgba(6, 11, 19, 0.75);
             border-bottom: 1px solid var(--glass-border);
             backdrop-filter: var(--blur-effect);
             -webkit-backdrop-filter: var(--blur-effect);
@@ -55,7 +46,7 @@
             height: 140px;
             margin: 0 auto 15px auto;
             border-radius: 50%;
-            border: 2px solid var(--gold-primary);
+            border: 2px solid var(--gold-light);
             overflow: hidden;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
             background-color: #0d1626;
@@ -70,14 +61,14 @@
         header h1 {
             margin: 5px 0;
             font-size: 32px;
-            color: var(--gold-primary);
+            color: var(--gold-light);
             font-family: 'Times New Roman', serif;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         header p {
             margin: 0;
-            color: var(--text-muted);
+            color: var(--gold-light);
             font-size: 14px;
             font-weight: bold;
             letter-spacing: 2px;
@@ -87,14 +78,14 @@
         .story-section {
             padding: 40px 20px;
             text-align: center;
-            background-color: var(--glass-card) !important;
+            background-color: var(--glass-card);
             border-bottom: 1px solid var(--glass-border);
             backdrop-filter: var(--blur-effect);
             -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .story-section h2 {
-            color: var(--gold-primary);
+            color: var(--gold-light);
             margin-top: 0;
             font-size: 24px;
         }
@@ -102,13 +93,13 @@
         .story-section p {
             font-size: 16px;
             line-height: 1.8;
-            color: var(--text-muted);
+            color: #cbd5e1;
             max-width: 750px;
             margin: 0 auto 20px auto;
         }
 
         .story-section .thanks-msg {
-            color: var(--gold-primary);
+            color: var(--gold-light);
             font-weight: bold;
             margin-bottom: 25px;
             display: block;
@@ -116,8 +107,8 @@
 
         /* بطاقة الرسالة التفاعلية المفتوحة الزجاجية الفخمة */
         .real-letter-card {
-            background-color: rgba(6, 11, 19, 0.65) !important;
-            border: 2px solid var(--gold-primary);
+            background-color: rgba(6, 11, 19, 0.65);
+            border: 2px solid var(--gold-light);
             border-radius: 15px;
             padding: 25px 20px;
             max-width: 450px;
@@ -129,7 +120,7 @@
         }
 
         .real-letter-card h3 {
-            color: var(--gold-primary);
+            color: var(--gold-light);
             margin: 0 0 10px 0;
             font-size: 18px;
             display: flex;
@@ -141,7 +132,7 @@
         .real-letter-card p {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text-muted);
+            color: #cbd5e1;
             margin-bottom: 20px;
         }
 
@@ -149,17 +140,17 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            background: linear-gradient(45deg, var(--gold-accent), var(--gold-light));
             color: #060b13;
             padding: 12px 25px;
             font-size: 15px;
             font-weight: bold;
             border-radius: 6px;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
+        /* حاوية تنظيم المحتوى الرئيسي המתجاوبة */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -177,8 +168,8 @@
         }
 
         .gallery-section h2, .form-section h2 {
-            color: var(--gold-primary);
-            border-bottom: 2px solid var(--gold-primary);
+            color: var(--gold-light);
+            border-bottom: 2px solid var(--gold-light);
             padding-bottom: 8px;
             margin-bottom: 25px;
             font-size: 20px;
@@ -196,7 +187,7 @@
 
         .tab-btn {
             background-color: rgba(13, 22, 38, 0.6);
-            color: var(--text-muted);
+            color: #cbd5e1;
             border: 1px solid var(--glass-border);
             padding: 10px 20px;
             font-size: 14px;
@@ -208,9 +199,9 @@
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            background: linear-gradient(45deg, var(--gold-accent), var(--gold-light));
             color: #060b13;
-            border-color: var(--gold-primary);
+            border-color: var(--gold-light);
         }
 
         .tab-content {
@@ -228,9 +219,9 @@
             margin-bottom: 15px;
         }
 
-        /* بطاقات المعرض زجاجية شفافة متناسقة */
+        /* بطاقات المعرض زجاجية شفافة */
         .demo-card {
-            background-color: var(--glass-card) !important; 
+            background-color: var(--glass-card); 
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
@@ -243,7 +234,7 @@
 
         .demo-card:hover {
             transform: translateY(-3px);
-            border-color: var(--gold-primary);
+            border-color: var(--gold-light);
         }
 
         .demo-card img {
@@ -258,25 +249,25 @@
             padding: 8px;
             margin: 0;
             font-size: 12px;
-            color: var(--gold-primary);
+            color: var(--gold-light);
             font-weight: bold;
             background-color: rgba(6, 11, 19, 0.85);
         }
 
         .custom-note {
             font-size: 13px;
-            color: var(--gold-primary);
+            color: var(--gold-light);
             background-color: rgba(212, 175, 55, 0.1);
             padding: 12px;
-            border-right: 4px solid var(--gold-primary);
+            border-right: 4px solid var(--gold-light);
             border-radius: 0 4px 4px 0;
             margin-top: 15px;
             font-weight: bold;
         }
 
-        /* قسم استمارة الطلب زجاجي فخم وشفاف جداً */
+        /* قسم استمارة الطلب زجاجي فخم وشفاف */
         .form-section {
-            background-color: var(--glass-card) !important; 
+            background-color: var(--glass-card); 
             padding: 30px 25px;
             border-radius: 14px;
             border: 1px solid var(--glass-border);
@@ -296,7 +287,7 @@
             margin-bottom: 8px;
             font-size: 15px;
             font-weight: bold;
-            color: var(--gold-primary);
+            color: var(--gold-light);
         }
 
         /* حقول الإدخال الشفافة بلمسة زجاجية فخمة ومقروءة */
@@ -313,14 +304,14 @@
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--gold-primary);
+            border-color: var(--gold-light);
             background-color: rgba(13, 22, 38, 0.9);
         }
 
         /* زر الإرسال عبر الواتساب الذهبي المتألق */
         .btn-submit {
             width: 100%;
-            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            background: linear-gradient(45deg, var(--gold-accent), var(--gold-light));
             color: #060b13;
             border: none;
             padding: 15px;
@@ -341,12 +332,11 @@
             padding: 45px 20px;
             font-size: 18px;
             font-weight: bold;
-            color: var(--gold-primary);
+            color: var(--gold-light);
             font-style: italic;
             background-color: rgba(6, 11, 19, 0.85);
             border-top: 1px solid var(--glass-border);
-            backdrop-filter: var(--blur-effect);
-            -webkit-backdrop-filter: var(--blur-effect);
+            backdrop-filter: blur(5px);
         }
 
         /* نافذة التكبير الكبيرة المحسنة (Lightbox) للّمس الفوري السريع */
@@ -363,7 +353,7 @@
         .lightbox-content {
             max-width: 92%;
             max-height: 82%;
-            border: 2px solid var(--gold-primary);
+            border: 2px solid var(--gold-light);
             border-radius: 8px;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
         }
@@ -380,7 +370,7 @@
         footer {
             text-align: center;
             padding: 25px;
-            color: var(--text-muted);
+            color: #cbd5e1;
             font-size: 12px;
             border-top: 1px solid var(--glass-border);
             background-color: rgba(6, 11, 19, 0.95);
@@ -388,8 +378,6 @@
     </style>
 </head>
 <body>
-
-    <div class="bg-layer"></div>
 
     <header>
         <div class="logo-container">
