@@ -10,9 +10,11 @@
             --green-dark: #3a4d28; 
             --gold-accent: #aa7c11; 
             --text-dark: #1e293b;
-            --glass-bg: rgba(255, 255, 255, 0.55); 
-            --glass-beige: rgba(251, 249, 244, 0.75);
-            --glass-border: rgba(58, 77, 40, 0.15);
+            /* الشفافية الزجاجية المثالية المضمونة للظهور */
+            --glass-white: rgba(255, 255, 255, 0.45); 
+            --glass-beige: rgba(251, 249, 244, 0.6);
+            --glass-border: rgba(58, 77, 40, 0.2);
+            --blur-effect: blur(12px); /* قوة الضبابية الزجاجية */
         }
 
         body {
@@ -21,21 +23,30 @@
             padding: 0;
             color: var(--text-dark);
             background-color: #f4f6f4;
+        }
+
+        /* طبقة خاصة ومستقلة لعرض صورة الخلفية لضمان عدم اختفائها رغماً عن المتصفحات */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('background.png');
             background-repeat: repeat;
             background-position: center;
-            background-attachment: scroll; 
             background-size: 280px;
+            z-index: -1; /* جعلها في الأسفل تماماً */
         }
 
-        /* الهيدر وخلفية اللوقو أصبحت زجاجية شفافة بالكامل */
+        /* الهيدر واللوقو زجاجي شفاف ومبهر */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: rgba(251, 249, 244, 0.75);
+            background-color: var(--glass-beige);
             border-bottom: 2px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .logo-container {
@@ -70,14 +81,14 @@
             letter-spacing: 1px;
         }
 
-        /* قسم قصة البداية زجاجي شفاف */
+        /* قسم قصة البداية زجاجي شفاف ونقي */
         .story-section {
             padding: 40px 20px;
             text-align: center;
-            background-color: var(--glass-bg);
+            background-color: var(--glass-white);
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .story-section h2 {
@@ -92,7 +103,7 @@
             color: var(--text-dark);
             max-width: 750px;
             margin: 0 auto 20px auto;
-            font-weight: 500;
+            font-weight: bold;
         }
 
         .story-section .thanks-msg {
@@ -102,9 +113,9 @@
             display: block;
         }
 
-        /* بطاقة الرسالة التفاعلية أصبحت زجاجية فخمة وشفافة تماماً */
+        /* بطاقة الرسالة التفاعلية زجاجية بيج فخمة */
         .real-letter-card {
-            background-color: rgba(251, 249, 244, 0.7);
+            background-color: rgba(251, 249, 244, 0.55);
             border: 2px solid var(--gold-accent);
             border-radius: 15px;
             padding: 25px 20px;
@@ -112,8 +123,8 @@
             margin: 20px auto 0 auto;
             text-align: center;
             box-shadow: 0 8px 32px rgba(170, 124, 17, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .real-letter-card h3 {
@@ -131,6 +142,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
         .btn-go-example {
@@ -147,7 +159,7 @@
             box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
         }
 
-        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
+        /* حاوية تنظيم المحتوى الرئيسي */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -172,7 +184,7 @@
             font-size: 20px;
         }
 
-        /* أزرار التصفح الذكية للتبويب شفاف وأنيق */
+        /* أزرار التصفح زجاجية وشفافة */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -182,7 +194,7 @@
         }
 
         .tab-btn {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.6);
             color: var(--text-dark);
             border: 1px solid var(--glass-border);
             padding: 10px 20px;
@@ -191,7 +203,8 @@
             border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
-            backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -215,16 +228,16 @@
             margin-bottom: 15px;
         }
 
-        /* جعل بطاقات التصاميم شفافة */
+        /* بطاقات التصاميم زجاجية شفافة */
         .demo-card {
-            background-color: var(--glass-bg); 
+            background-color: var(--glass-white); 
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
             transition: transform 0.2s ease;
         }
 
@@ -247,30 +260,31 @@
             font-size: 12px;
             color: var(--green-dark);
             font-weight: bold;
-            background-color: rgba(251, 249, 244, 0.75);
+            background-color: rgba(251, 249, 244, 0.6);
         }
 
         .custom-note {
             font-size: 13px;
             color: var(--green-dark);
-            background-color: rgba(74, 93, 47, 0.12);
+            background-color: rgba(74, 93, 47, 0.15);
             padding: 12px;
             border-right: 4px solid var(--green-dark);
             border-radius: 0 4px 4px 0;
             margin-top: 15px;
             font-weight: bold;
-            backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
-        /* جعل قسم استمارة الطلب شفافاً وزجاجياً */
+        /* قسم استمارة الطلب زجاجي شفاف فاخر جداً ومعزز */
         .form-section {
             background-color: var(--glass-beige); 
             padding: 30px 25px;
             border-radius: 14px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(58, 77, 40, 0.05);
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(58, 77, 40, 0.08);
+            backdrop-filter: var(--blur-effect); 
+            -webkit-backdrop-filter: var(--blur-effect);
             height: fit-content;
         }
 
@@ -287,17 +301,16 @@
             color: var(--green-dark);
         }
 
-        /* حقول إدخال شفافة ناعمة */
+        /* حقول الإدخال شفافة ناعمة وواضحة جداً */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid rgba(58, 77, 40, 0.25);
-            background-color: rgba(255, 255, 255, 0.75); 
+            border: 1px solid rgba(58, 77, 40, 0.2);
+            background-color: rgba(255, 255, 255, 0.65); 
             color: #000000;
             box-sizing: border-box;
             font-size: 16px;
-            backdrop-filter: blur(5px);
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -306,7 +319,6 @@
             background-color: #ffffff;
         }
 
-        /* زر إرسال الواتساب (مستعاد بوضوح كامل) */
         .btn-submit {
             width: 100%;
             background-color: var(--green-dark);
@@ -322,11 +334,6 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
-            transition: transform 0.2s ease;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
         }
 
         /* الخاتمة أسفل الصفحة */
@@ -337,12 +344,13 @@
             font-weight: bold;
             color: var(--green-dark);
             font-style: italic;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.7);
             border-top: 1px solid var(--glass-border);
-            backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
-        /* نافذة التكبير الكبيرة المحمية لتعمل على الهواتف إجبارياً */
+        /* نافذة التكبير (Lightbox) المحمية بالكامل */
         .lightbox {
             display: none;
             position: fixed;
@@ -358,7 +366,6 @@
             max-height: 82%;
             border: 2px solid #ffffff;
             border-radius: 8px;
-            box-shadow: 0 0 25px rgba(255,255,255,0.25);
         }
 
         .lightbox-close {
@@ -377,11 +384,15 @@
             font-size: 12px;
             font-weight: bold;
             border-top: 1px solid var(--glass-border);
-            background-color: rgba(251, 249, 244, 0.95);
+            background-color: rgba(251, 249, 244, 0.85);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
     </style>
 </head>
 <body>
+
+    <div class="bg-layer"></div>
 
     <header>
         <div class="logo-container">
@@ -520,11 +531,13 @@
             e.currentTarget.classList.add('active');
         }
 
-        // دالة التكبير المصلحة لتعمل فوراً باللمس
+        // تم تحديث الدالة لتبحث عن أقرب وسم img وتضمن فتح النافذة بنجاح إجباري عند الضغط
         function openLightbox(element) {
-            const imgSrc = element.querySelector('img').src;
-            document.getElementById('lightboxImg').src = imgSrc;
-            document.getElementById('imageLightbox').style.display = 'flex';
+            const imgElement = element.getElementsByTagName('img')[0];
+            if(imgElement) {
+                document.getElementById('lightboxImg').src = imgElement.src;
+                document.getElementById('imageLightbox').style.display = 'flex';
+            }
         }
 
         function closeLightbox() {
