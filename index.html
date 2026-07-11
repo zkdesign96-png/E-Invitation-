@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* الألوان الملكية المعتمدة: أزرق ليلي فاخر وذهبي براق */
+        /* نظام الألوان الفاخر المعتمد: أزرق ليلي داكن وذهبي براق بتأثير زجاجي */
         :root {
             --bg-dark: #060b13; 
             --gold-primary: #d4af37; 
             --gold-secondary: #aa7c11; 
             --text-light: #ffffff; 
             --text-muted: #cbd5e1;
-            /* تأثير الشفافية الزجاجية الفاخرة (Glassmorphism) */
-            --glass-card: rgba(13, 22, 38, 0.72); 
-            --glass-border: rgba(212, 175, 55, 0.28);
+            /* الشفافية والحدود الزجاجية الفاخرة المضمونة لظهور الخلفية */
+            --glass-card: rgba(13, 22, 38, 0.65); 
+            --glass-border: rgba(212, 175, 55, 0.25);
             --blur-effect: blur(12px);
         }
 
@@ -24,26 +24,19 @@
             padding: 0;
             color: var(--text-light);
             background-color: var(--bg-dark);
-            position: relative;
+            /* فرض ظهور الخلفية الملكية وإلزام المتصفح بقراءتها */
+            background-image: url('background.png') !important;
+            background-repeat: repeat !important;
+            background-position: center center !important;
+            background-size: 280px !important;
+            background-attachment: scroll !important;
         }
 
-        /* حاوية خلفية ذكية ومستقلة لتأمين قراءة ملف الصورة رغماً عن المتصفحات */
-        .royal-bg-layer {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            /* تأمين استدعاء الصورة بجميع حالات الأحرف المحتملة لضمان عملها فوراً */
-            background-image: url('background.png'), url('Background.png'), url('background.PNG'), url('background.jpg');
-            background-repeat: repeat;
-            background-position: center;
-            background-size: 280px;
-            z-index: -10;
-        }
-
-        /* الهيدر وخلفية اللوقو بتأثير زجاجي فخم تعكس الزخرفة الخلفية */
+        /* الهيدر واللوقو زجاجي شفاف فاخر يعكس ما خلفه بوضوح */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: rgba(6, 11, 19, 0.75) !important;
+            background-color: rgba(6, 11, 19, 0.65) !important;
             border-bottom: 1px solid var(--glass-border) !important;
             backdrop-filter: var(--blur-effect) !important;
             -webkit-backdrop-filter: var(--blur-effect) !important;
@@ -113,23 +106,23 @@
             display: block;
         }
 
-        /* بطاقة رسالة المعاينة الزجاجية */
+        /* بطاقة رسالة المعاينة الفاخرة الشفافة */
         .real-letter-card {
-            background-color: rgba(6, 11, 19, 0.6) !important;
+            background-color: rgba(6, 11, 19, 0.55) !important;
             border: 2px solid var(--gold-primary) !important;
             border-radius: 15px;
             padding: 25px 20px;
             max-width: 450px;
             margin: 20px auto 0 auto;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: var(--blur-effect) !important;
             -webkit-backdrop-filter: var(--blur-effect) !important;
         }
 
         .real-letter-card h3 {
             color: var(--gold-primary);
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             font-size: 18px;
             display: flex;
             align-items: center;
@@ -141,21 +134,27 @@
             font-size: 14px;
             line-height: 1.6;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .btn-go-example {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
-            color: #060b13;
-            padding: 12px 25px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 6px;
+        /* رابط التاج الملكي الفاخر والمتحرك */
+        .crown-link {
+            display: inline-block;
+            font-size: 55px; /* حجم التاج الكبير */
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: crownPulse 2s infinite ease-in-out;
+            margin-top: 5px;
+        }
+
+        .crown-link:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        @keyframes crownPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
         }
 
         /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
@@ -184,7 +183,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* أزرار التصفح للمجموعات زجاجية */
+        /* أزرار التصفح للمجموعات زجاجية شفافة */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -234,7 +233,7 @@
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             backdrop-filter: var(--blur-effect);
             -webkit-backdrop-filter: var(--blur-effect);
             transition: transform 0.2s ease;
@@ -265,7 +264,7 @@
         .custom-note {
             font-size: 13px;
             color: var(--gold-primary);
-            background-color: rgba(212, 175, 55, 0.12);
+            background-color: rgba(212, 175, 55, 0.1);
             padding: 12px;
             border-right: 4px solid var(--gold-primary);
             border-radius: 0 4px 4px 0;
@@ -279,7 +278,7 @@
             padding: 30px 25px;
             border-radius: 14px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: var(--blur-effect); 
             -webkit-backdrop-filter: var(--blur-effect);
             height: fit-content;
@@ -298,7 +297,7 @@
             color: var(--gold-primary);
         }
 
-        /* حقول الإدخال شفافة بلمسة زجاجية فخمة ومقروءة */
+        /* حقول الإدخال الشفافة بلمسة زجاجية فخمة ومقروءة */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
@@ -316,7 +315,7 @@
             background-color: rgba(13, 22, 38, 0.95);
         }
 
-        /* زر الإرسال عبر الواتساب */
+        /* زر الإرسال عبر الواتساب الذهبي */
         .btn-submit {
             width: 100%;
             background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
@@ -348,7 +347,7 @@
             -webkit-backdrop-filter: var(--blur-effect);
         }
 
-        /* نافذة التكبير الكبيرة المحسنة (Lightbox) */
+        /* نافذة التكبير الكبيرة المحسنة (Lightbox) للّمس الفوري */
         .lightbox {
             display: none;
             position: fixed;
@@ -388,8 +387,6 @@
 </head>
 <body>
 
-    <div class="royal-bg-layer"></div>
-
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="e-Invitation Logo">
@@ -407,9 +404,10 @@
         
         <div class="real-letter-card">
             <h3>✉️ عيّنة حيّة من أعمالنا</h3>
-            <p>شاهدوا مثالاً تفاعلياً وحقيقياً لكيفية تصميم وعرض دعواتنا الإلكترونية الفاخرة عبر الرابط التالي:</p>
-            <a href="https://zkdesign96-png.github.io/Exemple-/" target="_blank" class="btn-go-example">
-                🔗 فتح نموذج المعاينة التفاعلي
+            <p>اضغطوا على التاج الملكي بالأسفل لمشاهدة عيّنة معاينة حية وتفاعلية لعملنا الفاخر:</p>
+            
+            <a href="https://zkdesign96-png.github.io/Exemple-/" target="_blank" class="crown-link" title="اضغط هنا لرؤية المثال الحي">
+                👑
             </a>
         </div>
     </section>
@@ -567,4 +565,3 @@
     </script>
 </body>
 </html>
-
