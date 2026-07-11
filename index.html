@@ -329,5 +329,203 @@
             font-size: 12px;
             color: var(--green-dark);
             background-color: rgba(74, 93, 47, 0.05);
-            padding: 10
+            padding: 10px;
+            border-right: 3px solid var(--green-dark);
+            border-radius: 0 4px 4px 0;
+            margin-top: 10px;
+        }
+
+        /* قسم استمارة الطلب */
+        .form-section {
+            background-color: var(--beige-light);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(74, 93, 47, 0.12);
+            height: fit-content;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--green-dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(74, 93, 47, 0.2);
+            background-color: #ffffff;
+            color: #000000;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-dark);
+        }
+
+        /* زر الإرسال */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--green-dark);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #2e3d20;
+        }
+
+        /* الخاتمة أسفل الصفحة */
+        .beautiful-closing {
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--green-dark);
+            font-style: italic;
+            background-color: #ffffff;
+            border-top: 1px solid #edf2f7;
+        }
+
+        /* نافذة التكبير */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--green-dark);
+            font-size: 11px;
+            font-weight: bold;
+            border-top: 1px solid #edf2f7;
+            background-color: var(--beige-light);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="e-Invitation Logo">
+            </div>
+            <h1>e-Invitation</h1>
+            <p>DESIGNED BY Z & K</p>
+        </header>
+
+        <section class="story-section">
+            <h2>✨ حكايتنا وشغفنا</h2>
+            <p>
+                مرحباً بكم في عالمنا الخاص! مشروع <strong>e-Invitation</strong> هو ثمرة قصة حب وشغف جمعتنا كزوجين (Z & K). قررنا معاً أن ندمج لمستنا الفنية وخبرتنا التقنية لنحول مناسباتكم السعيدة إلى مواقع إلكترونية تفاعلية، عصرية وفاخرة تليق بأفراحكم.
+            </p>
+            <div class="thanks-msg">🤝 شكراً لثقتكم ومساندتكم لبدايتنا!</div>
+            
+            <div class="envelope-container" onclick="openLetterModal()">
+                <div class="envelope-box">
+                    <div class="envelope-icon">✉️</div>
+                    <div class="envelope-text">لديك رسالة معاينة.. اضغط لفتحها ✨</div>
+                </div>
+            </div>
+        </section>
+
+        <div id="letterModal" class="letter-modal">
+            <div class="letter-paper">
+                <span class="close-letter-btn" onclick="closeLetterModal()">&times;</span>
+                <h3>💌 عيّنة حيّة من أعمالنا</h3>
+                <p>
+                    تفضّلوا بفتح هذا الرابط لمشاهدة مثال تفاعلي وحقيقي لكيفية تصميم وعرض دعواتنا الإلكترونية الفاخرة.
+                </p>
+                <a href="https://zkdesign96-png.github.io/Exemple-/" target="_blank" class="btn-go-example">
+                    🔗 فتح نموذج المعاينة التفاعلي
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            
+            <div class="gallery-section">
+                <h2>✨ معرض تصاميمنا الحصرية (اضغط لتكبير الصورة)</h2>
+                
+                <div class="tabs-container">
+                    <button class="tab-btn active" onclick="switchTab(event, 'wedding')">💍 زفاف</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'graduation')">🎓 تخرج</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'circumcision')">✂️ ختان</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'birthday')">🎂 أعياد ميلاد</button>
+                </div>
+                
+                <div id="wedding" class="tab-content active">
+                    <div class="grid-gallery">
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo.png" alt="زفاف" loading="lazy"><p>نموذج 1</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo1.png" alt="زفاف" loading="lazy"><p>نموذج 2</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo2.png" alt="زفاف" loading="lazy"><p>نموذج 3</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo3.png" alt="زفاف" loading="lazy"><p>نموذج 4</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo4.png" alt="زفاف" loading="lazy"><p>نموذج 5</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo5.png" alt="زفاف" loading="lazy"><p>نموذج 6</p></div>
+                    </div>
+                    <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+                </div>
+
+                <div id="graduation" class="tab-content">
+                    <div class="grid-gallery">
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo.jpg" alt="تخرج" loading="lazy"><p>نموذج 1</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo1.jpg" alt="تخرج" loading="lazy"><p>نموذج 2</p></div>
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo2.jpg" alt="تخرج" loading="lazy"><p>نموذج 3</p></div>
+                    </div>
+                    <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+                </div>
+
+                <div id="circumcision" class="tab-content">
+                    <div class="grid-gallery">
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="circumcision-demo.jpg" alt="ختان" loading="lazy"><p>نموذج 1</p></div>
+                    </div>
+                    <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+                </div>
+
+                <div id="birthday" class="tab-content">
+                    <div class="grid-gallery">
+                        <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo.jpg" alt="عيد ميلاد" loading="lazy"><p>نموذج 1</p></div>
 
