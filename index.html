@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
+    <style>
+        /* الألوان والهوية البصرية الفاخرة والعصرية */
+        :root {
+            --bg-color: #0b1325;
+            --card-bg: rgba(17, 28, 52, 0.92);
+            --gold-primary: #d4af37;
+            --gold-secondary: #aa7c11;
+            --text-color: #ffffff;
+            --text-muted: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(11, 19, 37, 0.75), rgba(11, 19, 37, 0.85)), url('background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* نافذة الرسالة الترحيبية المنبثقة فور الدخول */
+        .welcome-popup {
+            display: flex;
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(11, 19, 37, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, #111c34 0%, #1a294d 100%);
+            border: 2px solid var(--gold-primary);
+            border-radius: 15px;
+            padding: 35px 25px;
+            max-width: 450px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+            position: relative;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .welcome-card h3 {
+            color: var(--gold-primary);
+            margin-top: 0;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .welcome-card p {
+            color: #f1f5f9;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 15px 0 25px 0;
+        }
+
+        .btn-close-welcome {
+            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            color: #0b1325;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close-welcome:hover {
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* الهيدر واللوقو */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(17, 28, 52, 0.9) 0%, rgba(11, 19, 37, 0.6) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+            background-color: #111c34;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            margin: 10px 0 5px 0;
+            font-size: 32px;
+            color: var(--gold-primary);
+            font-family: 'Times New Roman', serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* قصة البداية */
+        .story-section {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            background: linear-gradient(135deg, rgba(17, 28, 52, 0.9) 0%, rgba(22, 36, 68, 0.9) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .story-section h2 {
+            color: var(--gold-primary);
+            margin-top: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .story-section p {
+            color: #f1f5f9;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 15px 0;
+        }
+
+        .story-section .thanks-msg {
+            color: var(--gold-primary);
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        /* حاوية المحتوى الرئيسي */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* قسم نماذج التصاميم */
+        .gallery-section h2, .form-section h2 {
+            color: var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .category-title {
+            color: var(--gold-primary);
+            font-size: 16px;
+            margin: 25px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .demo-card {
+            background-color: rgba(17, 28, 52, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .demo-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            background-color: #1a2642;
+        }
+
+        .demo-card::after {
+            content: '🔍 تكبير';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 160px;
+            background-color: rgba(11, 19, 37, 0.7);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .demo-card:hover::after {
+            opacity: 1;
+        }
+
+        .demo-card p {
+            text-align: center;
+            padding: 8px;
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-color);
+            background-color: rgba(17, 28, 52, 0.9);
+        }
+
+        .custom-note {
+            font-size: 13px;
+            color: #f1f5f9;
+            background-color: rgba(212, 175, 55, 0.15);
+            margin-bottom: 25px;
+            padding: 6px 12px;
+            border-right: 3px solid var(--gold-primary);
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* قسم استمارة الطلب */
+        .form-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* زر المعاينة الجديد الفاخر */
+        .btn-example-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: transparent;
+            color: var(--gold-primary);
+            border: 2px dashed var(--gold-primary);
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 8px;
