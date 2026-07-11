@@ -5,30 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام الألوان الفاخر المعتمد: أخضر فاتح وبيج مع خانات شفافة */
+        /* نظام الألوان الفاخر: أخضر فاتح وبيج مع تأثير الشفافية الزجاجية */
         :root {
-            --bg-color: #f4f6f4; 
-            --card-transparent: rgba(255, 255, 255, 0.75); /* بطاقات شفافة أنيقة */
             --green-dark: #3a4d28; 
             --gold-accent: #aa7c11; 
-            --beige-light: rgba(251, 249, 244, 0.9); 
             --text-dark: #1e293b;
+            /* خانات شفافة وأنيقة تظهر الخلفية من ورائها */
+            --glass-bg: rgba(255, 255, 255, 0.55); 
+            --glass-beige: rgba(251, 249, 244, 0.75);
+            --glass-border: rgba(58, 77, 40, 0.15);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            /* إعادة دمج وتفعيل صورة الخلفية الداكنة الفخمة مع تكرارها بشكل متناسق */
+            background: linear-gradient(rgba(244, 246, 244, 0.45), rgba(244, 246, 244, 0.45)), url('background.png') repeat center center fixed;
+            background-size: 280px;
             margin: 0;
             padding: 0;
             color: var(--text-dark);
         }
 
-        /* الهيدر واللوقو */
+        /* الهيدر واللوقو شفاف وأنيق */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: #ffffff;
-            border-bottom: 2px solid rgba(58, 77, 40, 0.1);
+            background-color: rgba(251, 249, 244, 0.85);
+            border-bottom: 2px solid var(--glass-border);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .logo-container {
@@ -63,12 +68,14 @@
             letter-spacing: 1px;
         }
 
-        /* قسم قصة البداية الحرة */
+        /* قسم قصة البداية شفاف وبمظهر زجاجي عصري */
         .story-section {
             padding: 40px 20px;
             text-align: center;
-            background-color: #ffffff;
-            border-bottom: 1px solid #edf2f7;
+            background-color: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .story-section h2 {
@@ -83,6 +90,7 @@
             color: var(--text-dark);
             max-width: 750px;
             margin: 0 auto 20px auto;
+            font-weight: 500;
         }
 
         .story-section .thanks-msg {
@@ -92,9 +100,9 @@
             display: block;
         }
 
-        /* بطاقة الرسالة التفاعلية المفتوحة مباشرة والمضمونة للعرض */
+        /* بطاقة الرسالة التفاعلية الشفافة والمفتوحة */
         .real-letter-card {
-            background: linear-gradient(135deg, rgba(251, 249, 244, 0.95) 0%, rgba(243, 238, 225, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(251, 249, 244, 0.85) 0%, rgba(243, 238, 225, 0.85) 100%);
             border: 2px solid var(--gold-accent);
             border-radius: 15px;
             padding: 25px 20px;
@@ -102,6 +110,7 @@
             margin: 20px auto 0 auto;
             text-align: center;
             box-shadow: 0 8px 25px rgba(170, 124, 17, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .real-letter-card h3 {
@@ -133,14 +142,9 @@
             border-radius: 6px;
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
-            transition: transform 0.2s;
         }
 
-        .btn-go-example:hover {
-            transform: translateY(-2px);
-        }
-
-        /* حاوية تنظيم المحتوى الرئيسي الحرة المتجاوبة المضمونة */
+        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -165,7 +169,7 @@
             font-size: 20px;
         }
 
-        /* أزرار التحكم بالمعرض التفاعلي السريع */
+        /* أزرار التصفح الذكية للتبويب شفاف وأنيق */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -175,15 +179,16 @@
         }
 
         .tab-btn {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.7);
             color: var(--text-dark);
-            border: 1px solid rgba(58, 77, 40, 0.15);
+            border: 1px solid var(--glass-border);
             padding: 10px 20px;
             font-size: 14px;
             font-weight: bold;
             border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
+            backdrop-filter: blur(5px);
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -207,13 +212,22 @@
             margin-bottom: 15px;
         }
 
+        /* جعل بطاقات التصاميم شفافة بالكامل */
         .demo-card {
-            background-color: var(--card-transparent); 
-            border: 1px solid rgba(58, 77, 40, 0.1);
+            background-color: var(--glass-bg); 
+            border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: transform 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-accent);
         }
 
         .demo-card img {
@@ -230,28 +244,30 @@
             font-size: 12px;
             color: var(--green-dark);
             font-weight: bold;
-            background-color: rgba(251, 249, 244, 0.8);
+            background-color: rgba(251, 249, 244, 0.65);
         }
 
         .custom-note {
             font-size: 13px;
             color: var(--green-dark);
-            background-color: rgba(74, 93, 47, 0.06);
+            background-color: rgba(74, 93, 47, 0.1);
             padding: 12px;
             border-right: 4px solid var(--green-dark);
             border-radius: 0 4px 4px 0;
             margin-top: 15px;
-            font-weight: 500;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
         }
 
-        /* تصميم استمارة الطلب بالخانات الشفافة الفاخرة */
+        /* جعل قسم استمارة الطلب شفافاً وزجاجياً فخماً جداً */
         .form-section {
-            background-color: var(--card-transparent); 
+            background-color: var(--glass-beige); 
             padding: 30px 25px;
             border-radius: 14px;
-            border: 1px solid rgba(74, 93, 47, 0.2);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(58, 77, 40, 0.05);
             backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
             height: fit-content;
         }
 
@@ -268,263 +284,11 @@
             color: var(--green-dark);
         }
 
+        /* حقول إدخال شفافة ناعمة وبمظهر عصري */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid rgba(74, 93, 47, 0.2);
-            background-color: rgba(255, 255, 255, 0.85); /* حقول شفافة ناعمة */
-            color: #000000;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--green-dark);
-            background-color: #ffffff;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--green-dark);
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .beautiful-closing {
-            text-align: center;
-            padding: 45px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--green-dark);
-            font-style: italic;
-            background-color: #ffffff;
-            border-top: 1px solid #edf2f7;
-        }
-
-        /* نافذة التكبير الكبيرة المحسنة (Lightbox) لتعمل باللمس الفوري */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.92);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-content {
-            max-width: 92%;
-            max-height: 82%;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 25px; right: 25px;
-            color: #ffffff;
-            font-size: 45px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: var(--green-dark);
-            font-size: 12px;
-            font-weight: bold;
-            border-top: 1px solid #edf2f7;
-            background-color: var(--beige-light);
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="e-Invitation Logo">
-        </div>
-        <h1>e-Invitation</h1>
-        <p>DESIGNED BY Z & K</p>
-    </header>
-
-    <section class="story-section">
-        <h2>✨ حكايتنا وشغفنا</h2>
-        <p>
-            مرحباً بكم في عالمنا الخاص! مشروع <strong>e-Invitation</strong> هو ثمرة قصة حب وشغف جمعتنا كزوجين (Z & K). قررنا معاً أن ندمج لمستنا الفنية وخبرتنا التقنية لنحول مناسباتكم السعيدة إلى مواقع إلكترونية تفاعلية، عصرية وفاخرة تليق بأفراحكم.
-        </p>
-        <span class="thanks-msg">🤝 شكراً لثقتكم ومساندتكم لبدايتنا!</span>
-        
-        <div class="real-letter-card">
-            <h3>✉️ عيّنة حيّة من أعمالنا</h3>
-            <p>شاهدوا مثالاً تفاعلياً وحقيقياً لكيفية تصميم وعرض دعواتنا الإلكترونية الفاخرة عبر الرابط التالي:</p>
-            <a href="https://zkdesign96-png.github.io/Exemple-/" target="_blank" class="btn-go-example">
-                🔗 فتح نموذج المعاينة التفاعلي
-            </a>
-        </div>
-    </section>
-
-    <div class="main-content">
-        
-        <div class="gallery-section">
-            <h2>✨ معرض تصاميمنا الحصرية (اضغط لتكبير الصورة)</h2>
-            
-            <div class="tabs-container">
-                <button class="tab-btn active" onclick="switchTab(event, 'wedding')">💍 زفاف</button>
-                <button class="tab-btn" onclick="switchTab(event, 'graduation')">🎓 تخرج</button>
-                <button class="tab-btn" onclick="switchTab(event, 'circumcision')">✂️ ختان</button>
-                <button class="tab-btn" onclick="switchTab(event, 'birthday')">🎂 أعياد ميلاد</button>
-            </div>
-            
-            <div id="wedding" class="tab-content active">
-                <div class="grid-gallery">
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo.png" alt="زفاف" loading="lazy"><p>نموذج 1</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo1.png" alt="زفاف" loading="lazy"><p>نموذج 2</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo2.png" alt="زفاف" loading="lazy"><p>نموذج 3</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo3.png" alt="زفاف" loading="lazy"><p>نموذج 4</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo4.png" alt="زفاف" loading="lazy"><p>نموذج 5</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo5.png" alt="زفاف" loading="lazy"><p>نموذج 6</p></div>
-                </div>
-                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
-            </div>
-
-            <div id="graduation" class="tab-content">
-                <div class="grid-gallery">
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo.jpg" alt="تخرج" loading="lazy"><p>نموذج 1</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo1.jpg" alt="تخرج" loading="lazy"><p>نموذج 2</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo2.jpg" alt="تخرج" loading="lazy"><p>نموذج 3</p></div>
-                </div>
-                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
-            </div>
-
-            <div id="circumcision" class="tab-content">
-                <div class="grid-gallery">
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="circumcision-demo.jpg" alt="ختان" loading="lazy"><p>نموذج 1</p></div>
-                </div>
-                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
-            </div>
-
-            <div id="birthday" class="tab-content">
-                <div class="grid-gallery">
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo.jpg" alt="عيد ميلاد" loading="lazy"><p>نموذج 1</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo1.jpg" alt="عيد ميلاد" loading="lazy"><p>نموذج 2</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo2.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 3</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo3.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 4</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo4.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 5</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo5.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 6</p></div>
-                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo6.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 7</p></div>
-                </div>
-                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <h2>📥 اطلب تصميمك الآن</h2>
-            <form id="invitationForm">
-                <div class="form-group">
-                    <label for="fullName">الاسم واللقب:</label>
-                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="occasion">نوع المناسبة:</label>
-                    <select id="occasion" required>
-                        <option value="" disabled selected>اختر نوع المناسبة...</option>
-                        <option value="دعوة زفاف">دعوة زفاف</option>
-                        <option value="دعوة تخرج">دعوة تخرج</option>
-                        <option value="دعوة ختان">دعوة ختان</option>
-                        <option value="دعوة عيد ميلاد">دعوة عيد ميلاد</option>
-                        <option value="دعوة اجتماع">دعوة اجتماع</option>
-                        <option value="دعوة عمل">دعوة عمل</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="details">تفاصيل إضافية (التاريخ، المكان، أو ملاحظات خاصة):</label>
-                    <textarea id="details" rows="4" placeholder="اكتب هنا أي معلومات تود إضافتها في الموقع..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    أرسل الطلب عبر الواتساب 💬
-                </button>
-            </form>
-        </div>
-
-    </div>
-
-    <div class="beautiful-closing">
-        "لأنّ لكلّ قصة بداية متميزة، دعونا نخلّد تفاصيل فرحتكم بأبهى حُلّة رقمية ✨🤍"
-    </div>
-
-    <footer>
-        &copy; 2026 e-Invitation (Z & K). جميع الحقوق محفوظة.
-    </footer>
-
-    <div id="imageLightbox" class="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightboxImg" alt="صورة مكبرة">
-    </div>
-
-    <script>
-        function switchTab(e, tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            e.currentTarget.classList.add('active');
-        }
-
-        function openLightbox(element) {
-            const imgSrc = element.querySelector('img').src;
-            document.getElementById('lightboxImg').src = imgSrc;
-            document.getElementById('imageLightbox').style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            document.getElementById('imageLightbox').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const lightbox = document.getElementById('imageLightbox');
-            if (event.target == lightbox) {
-                lightbox.style.display = 'none';
-            }
-        }
-
-        document.getElementById('invitationForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-
-            const fullName = document.getElementById('fullName').value;
-            const occasion = document.getElementById('occasion').value;
-            const details = document.getElementById('details').value || "لا توجد تفاصيل إضافية";
-
-            const whatsappNumber = "213554694328"; 
-
-            const message = `✨ *طلب دعوة إلكترونية جديدة* ✨%0A%0A` +
-                            `👤 *الاسم واللقب:* ${encodeURIComponent(fullName)}%0A` +
-                            `🎉 *نوع المناسبة:* ${encodeURIComponent(occasion)}%0A` +
-                            `📝 *التفاصيل:* ${encodeURIComponent(details)}%0A%0A` +
-                            `🚀 تم إرسال الطلب عبر موقع e-Invitation`;
-
-            const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
-            window.open(whatsappURL, '_blank');
-        });
-    </script>
-</body>
-</html>
+            border: 1px solid rgba(58, 77, 40, 0.2);
+            background-color: rgba(255, 255, 255,
 
