@@ -5,58 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام الألوان: أخضر هادئ وبيج فاخر */
+        /* الألوان العصرية المعتمدة: أخضر فاتح وبيج ناعم دافئ */
         :root {
-            --main-box-bg: #ffffff;
-            --beige-light: #fbf9f4;
-            --green-dark: #3a4d28;
-            --gold-accent: #aa7c11;
-            --text-dark: #2c3e50;
+            --bg-color: #f4f6f4; /* خلفية الموقع العامة أخضر فاتح هادئ */
+            --card-bg: #ffffff; /* بيضاء ناصعة للبطاقات لتظهر بوضوح إجباري */
+            --green-dark: #3a4d28; /* أخضر زيتي فاخر للنصوص والعناوين */
+            --gold-accent: #aa7c11; /* ذهبي عتيق للروابط والحواف */
+            --beige-light: #fbf9f4; /* بيج ناعم للأقسام الداخلية */
+            --text-dark: #1e293b;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('background.png') repeat center center fixed;
-            background-size: 280px;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
             color: var(--text-dark);
         }
 
-        /* حاوية الموقع الرئيسية */
-        .page-wrapper {
-            max-width: 1000px;
-            margin: 30px auto;
-            background-color: var(--main-box-bg);
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--gold-accent);
-            overflow: hidden;
-        }
-
-        @media (max-width: 768px) {
-            .page-wrapper {
-                margin: 10px;
-                border-radius: 12px;
-            }
-        }
-
-        /* الهيدر واللوقو */
+        /* الهيدر واللوقو الأساسي */
         header {
             text-align: center;
-            padding: 35px 20px;
+            padding: 40px 20px;
             background-color: var(--beige-light);
-            border-bottom: 2px solid rgba(58, 77, 40, 0.08);
+            border-bottom: 2px solid rgba(58, 77, 40, 0.1);
         }
 
         .logo-container {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 15px auto;
             border-radius: 50%;
-            border: 2px solid var(--green-dark);
+            border: 3px solid var(--green-dark);
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(58, 77, 40, 0.1);
+            box-shadow: 0 4px 20px rgba(58, 77, 40, 0.15);
             background-color: #ffffff;
         }
 
@@ -68,7 +50,7 @@
 
         header h1 {
             margin: 5px 0;
-            font-size: 28px;
+            font-size: 32px;
             color: var(--green-dark);
             font-family: 'Times New Roman', serif;
         }
@@ -76,45 +58,46 @@
         header p {
             margin: 0;
             color: var(--gold-accent);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             letter-spacing: 1px;
         }
 
-        /* قسم قصة البداية */
+        /* قسم قصة البداية الحرة والمباشرة */
         .story-section {
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
             background-color: #ffffff;
             border-bottom: 1px solid #edf2f7;
+            margin: 0 auto;
         }
 
         .story-section h2 {
             color: var(--green-dark);
             margin-top: 0;
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .story-section p {
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.8;
             color: var(--text-dark);
             max-width: 750px;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 20px auto;
         }
 
         .story-section .thanks-msg {
             color: var(--gold-accent);
             font-weight: bold;
             margin-bottom: 25px;
+            display: block;
         }
 
-        /* ظرف الرسالة التفاعلي المغلق */
+        /* تصميم ظرف الرسالة التفاعلي لفتح المثال */
         .envelope-container {
             margin: 20px auto;
-            max-width: 320px;
+            max-width: 325px;
             cursor: pointer;
-            perspective: 1000px;
         }
 
         .envelope-box {
@@ -122,28 +105,21 @@
             border: 2px solid var(--gold-accent);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 8px 20px rgba(170, 124, 17, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(170, 124, 17, 0.12);
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            transition: transform 0.2s ease;
         }
 
         .envelope-box:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(170, 124, 17, 0.25);
+            transform: translateY(-3px);
             border-color: var(--green-dark);
         }
 
         .envelope-icon {
-            font-size: 40px;
-            animation: float 2s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            font-size: 42px;
         }
 
         .envelope-text {
@@ -171,14 +147,7 @@
             width: 85%;
             max-width: 420px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
             position: relative;
-            animation: openLetter 0.4s ease-out;
-        }
-
-        @keyframes openLetter {
-            from { opacity: 0; transform: translateY(30px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .letter-paper h3 {
@@ -198,7 +167,6 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             background-color: var(--green-dark);
             color: #ffffff;
             padding: 12px 25px;
@@ -206,40 +174,30 @@
             font-weight: bold;
             border-radius: 6px;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
-            transition: background 0.2s;
-        }
-
-        .btn-go-example:hover {
-            background-color: #2e3d20;
         }
 
         .close-letter-btn {
             position: absolute;
-            top: 12px;
-            right: 15px;
-            font-size: 28px;
+            top: 12px; right: 15px;
+            font-size: 26px;
             cursor: pointer;
             color: #a0aec0;
-            line-height: 1;
         }
 
-        .close-letter-btn:hover {
-            color: var(--green-dark);
-        }
-
-        /* حاوية تنظيم المحتوى الرئيسي */
+        /* حاوية تنظيم المحتوى الرئيسي الحرة المتجاوبة */
         .main-content {
-            padding: 30px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
             display: grid;
             grid-template-columns: 1.3fr 1fr;
-            gap: 30px;
-            background-color: #ffffff;
+            gap: 40px;
         }
 
         @media (max-width: 992px) {
             .main-content {
-                grid-template-columns: 1fr; /* عرض الاستمارة بالكامل بشكل سليم تحت المعرض على الهواتف */
+                grid-template-columns: 1fr;
+                padding: 20px;
             }
         }
 
@@ -247,27 +205,27 @@
             color: var(--green-dark);
             border-bottom: 2px solid var(--green-dark);
             padding-bottom: 8px;
-            margin-bottom: 20px;
-            font-size: 18px;
+            margin-bottom: 25px;
+            font-size: 20px;
         }
 
-        /* تصميم الأزرار التفاعلية للتبديل بين الفئات */
+        /* أزرار التحكم بالمعرض */
         .tabs-container {
             display: flex;
             gap: 8px;
             overflow-x: auto;
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .tab-btn {
-            background-color: var(--beige-light);
+            background-color: #ffffff;
             color: var(--text-dark);
             border: 1px solid rgba(58, 77, 40, 0.15);
-            padding: 8px 16px;
-            font-size: 13px;
+            padding: 10px 20px;
+            font-size: 14px;
             font-weight: bold;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.2s ease;
@@ -279,7 +237,6 @@
             border-color: var(--green-dark);
         }
 
-        /* حاويات الفئات التفاعلية */
         .tab-content {
             display: none;
         }
@@ -290,19 +247,19 @@
 
         .grid-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
             margin-bottom: 15px;
         }
 
         .demo-card {
-            background-color: var(--beige-light);
+            background-color: #ffffff;
             border: 1px solid rgba(58, 77, 40, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.2s ease;
             cursor: pointer;
-            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
         }
 
         .demo-card:hover {
@@ -311,5 +268,91 @@
         }
 
         .demo-card img {
-            width: 10
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .demo-card p {
+            text-align: center;
+            padding: 8px;
+            margin: 0;
+            font-size: 12px;
+            color: var(--green-dark);
+            font-weight: bold;
+            background-color: var(--beige-light);
+        }
+
+        .custom-note {
+            font-size: 13px;
+            color: var(--green-dark);
+            background-color: rgba(74, 93, 47, 0.06);
+            padding: 12px;
+            border-right: 4px solid var(--green-dark);
+            border-radius: 0 4px 4px 0;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* قسم استمارة الطلب مستقل ومرئي */
+        .form-section {
+            background-color: var(--beige-light);
+            padding: 30px 25px;
+            border-radius: 14px;
+            border: 1px solid rgba(74, 93, 47, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            height: fit-content;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--green-dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(74, 93, 47, 0.2);
+            background-color: #ffffff;
+            color: #000000;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-dark);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--green-dark);
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* الخاتمة أسفل الصفحة */
+        .beautiful-closing {
+            text-align: center;
+            padding: 45px 20px;
+            font-size: 1
 
