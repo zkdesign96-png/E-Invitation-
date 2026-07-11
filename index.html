@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام ألوان ملكي فاخر: أزرق ليلي داكن وذهبي براق */
+        /* نظام ألوان ملكي فاخر مع تأثير الشفافية الزجاجية الداكنة */
         :root {
-            --bg-dark: #060b13; /* أزرق ملكي داكن جداً خلفي */
-            --gold-primary: #d4af37; /* ذهبي ملكي لامع */
-            --gold-secondary: #aa7c11; /* ذهبي عتيق للحدود */
+            --bg-dark: #060b13; 
+            --gold-primary: #d4af37; 
+            --gold-secondary: #aa7c11; 
             --text-light: #ffffff; 
             --text-muted: #cbd5e1;
-            /* تأثير الشفافية الزجاجية الداكنة الفخمة */
-            --glass-card: rgba(13, 22, 38, 0.82); 
-            --glass-border: rgba(212, 175, 55, 0.25);
+            /* الشفافية والحدود الزجاجية الفاخرة المدعومة إجبارياً */
+            --glass-card: rgba(13, 22, 38, 0.75); 
+            --glass-border: rgba(212, 175, 55, 0.3);
+            --blur-effect: blur(12px);
         }
 
         body {
@@ -23,22 +24,30 @@
             padding: 0;
             color: var(--text-light);
             background-color: var(--bg-dark);
-            /* تفعيل صورة الخلفية المزخرفة بأمان لتظهر خلف المحتوى الفاخر */
+        }
+
+        /* طبقة عزل خاصة ومستقلة لإجبار صورة الخلفية على الظهور دائماً خلف المحتوى */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('background.png');
             background-repeat: repeat;
             background-position: center;
-            background-attachment: scroll;
             background-size: 280px;
+            z-index: -10; /* وضعها في الخلفية العميقة */
         }
 
-        /* الهيدر واللوقو زجاجي داكن فاخر */
+        /* الهيدر واللوقو زجاجي شفاف فاخر */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: rgba(6, 11, 19, 0.85);
+            background-color: rgba(6, 11, 19, 0.75) !important;
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .logo-container {
@@ -74,14 +83,14 @@
             letter-spacing: 2px;
         }
 
-        /* قسم قصة البداية الفاخر */
+        /* قسم قصة البداية زجاجي شفاف ومبهر يعكس الزخرفة */
         .story-section {
             padding: 40px 20px;
             text-align: center;
-            background-color: var(--glass-card);
+            background-color: var(--glass-card) !important;
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .story-section h2 {
@@ -105,9 +114,9 @@
             display: block;
         }
 
-        /* بطاقة الرسالة التفاعلية المفتوحة الفاخرة */
+        /* بطاقة الرسالة التفاعلية المفتوحة الزجاجية الفخمة */
         .real-letter-card {
-            background-color: rgba(6, 11, 19, 0.75);
+            background-color: rgba(6, 11, 19, 0.65) !important;
             border: 2px solid var(--gold-primary);
             border-radius: 15px;
             padding: 25px 20px;
@@ -115,8 +124,8 @@
             margin: 20px auto 0 auto;
             text-align: center;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
         .real-letter-card h3 {
@@ -148,14 +157,9 @@
             border-radius: 6px;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s;
         }
 
-        .btn-go-example:hover {
-            transform: translateY(-2px);
-        }
-
-        /* حاوية تنظيم المحتوى الرئيسي */
+        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -181,7 +185,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* أزرار التصفح الذكية */
+        /* أزرار التصفح الذكية زجاجية */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -224,16 +228,16 @@
             margin-bottom: 15px;
         }
 
-        /* بطاقات المعرض الفاخرة */
+        /* بطاقات المعرض زجاجية شفافة متناسقة */
         .demo-card {
-            background-color: var(--glass-card); 
+            background-color: var(--glass-card) !important; 
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
             transition: transform 0.2s ease;
         }
 
@@ -270,15 +274,15 @@
             font-weight: bold;
         }
 
-        /* قسم استمارة الطلب الزجاجي الداكن الفاخر */
+        /* قسم استمارة الطلب زجاجي فخم وشفاف جداً */
         .form-section {
-            background-color: var(--glass-card); 
+            background-color: var(--glass-card) !important; 
             padding: 30px 25px;
             border-radius: 14px;
             border: 1px solid var(--glass-border);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: var(--blur-effect); 
+            -webkit-backdrop-filter: var(--blur-effect);
             height: fit-content;
         }
 
@@ -295,7 +299,7 @@
             color: var(--gold-primary);
         }
 
-        /* حقول الإدخال الشفافة الفاخرة */
+        /* حقول الإدخال الشفافة بلمسة زجاجية فخمة ومقروءة */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
@@ -313,7 +317,7 @@
             background-color: rgba(13, 22, 38, 0.9);
         }
 
-        /* زر الإرسال عبر الواتساب الذهبي */
+        /* زر الإرسال عبر الواتساب الذهبي المتألق */
         .btn-submit {
             width: 100%;
             background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
@@ -329,10 +333,9 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* الخاتمة أسفل الصفحة */
+        /* الخاتمة زجاجية داكنة فاخرة أسفل الصفحة */
         .beautiful-closing {
             text-align: center;
             padding: 45px 20px;
@@ -342,10 +345,11 @@
             font-style: italic;
             background-color: rgba(6, 11, 19, 0.85);
             border-top: 1px solid var(--glass-border);
-            backdrop-filter: blur(5px);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
         }
 
-        /* نافذة التكبير (Lightbox) */
+        /* نافذة التكبير الكبيرة المحسنة (Lightbox) للّمس الفوري السريع */
         .lightbox {
             display: none;
             position: fixed;
@@ -384,6 +388,8 @@
     </style>
 </head>
 <body>
+
+    <div class="bg-layer"></div>
 
     <header>
         <div class="logo-container">
