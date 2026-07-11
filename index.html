@@ -5,47 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام الألوان الجديد: أخضر فاتح وبيج فاتح مع لمسات ذهبية */
+        /* نظام ألوان عصري: أخضر هادئ وبيج فاخر مع تباين عالي جداً */
         :root {
-            --bg-color: #f4f7f5; /* خلفية الصفحة العامة - أخضر هادئ فاتح جداً */
-            --card-bg: rgba(255, 255, 255, 0.96); /* خلفية البطاقات بيضاء ناصعة مائلة للبيج */
-            --green-premium: #556b2f; /* أخضر زيتي راقي للنصوص والعناوين */
-            --gold-primary: #aa7c11; /* ذهبي دافئ متناسق مع البيج */
-            --gold-secondary: #d4af37;
-            --text-color: #2c3e50; /* لون نصوص داكن وواضح جداً للقراءة */
-            --text-muted: #576574;
-            --beige-accent: #f5f0e6; /* لون بيج ناعم للأقسام */
+            --bg-color: #0b1325;
+            --main-box-bg: #ffffff; /* جعل حاوية المحتوى بيضاء ناصعة لتظهر فوق الصورة الداكنة مجبراً */
+            --green-premium: #4a5d2f; /* أخضر راقي وواضح للنصوص */
+            --gold-primary: #aa7c11;
+            --beige-accent: #fcf9f2; /* بيج فاتح جداً وناعم للأقسام */
+            --text-dark: #1e293b; /* لون نص داكن لضمان القراءة */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* دمج الصورة كخلفية مع طبقة حماية فاتحة باللون البيج والأخضر */
-            background: linear-gradient(rgba(245, 240, 230, 0.85), rgba(244, 247, 245, 0.9)), url('background.png') repeat center center fixed;
-            background-size: 300px;
-            color: var(--text-color);
+            /* تثبيت الصورة الداكنة في الخلفية بالكامل */
+            background: url('background.png') repeat center center fixed;
+            background-size: 280px;
             margin: 0;
             padding: 0;
+            color: var(--text-dark);
         }
 
-        /* الهيدر واللوقو */
+        /* حاوية بيضاء رئيسية تجمع كل محتوى الموقع وتضمن ظهوره فوق الخلفية الداكنة رغماً عن أي متصفح */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 30px auto;
+            background-color: var(--main-box-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--gold-primary);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                margin: 10px;
+                border-radius: 12px;
+            }
+        }
+
+        /* الهيدر واللوقو داخل الحاوية المرئية */
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, rgba(245, 240, 230, 0.95) 0%, rgba(244, 247, 245, 0.8) 100%);
-            border-bottom: 1px solid rgba(85, 107, 47, 0.2);
-            position: relative;
-            z-index: 10;
+            background-color: var(--beige-accent);
+            border-bottom: 2px solid rgba(74, 93, 47, 0.15);
         }
 
         .logo-container {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 15px auto;
             border-radius: 50%;
             border: 2px solid var(--green-premium);
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.15);
             background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .logo-container img {
@@ -56,10 +70,9 @@
 
         header h1 {
             margin: 10px 0 5px 0;
-            font-size: 32px;
+            font-size: 30px;
             color: var(--green-premium);
             font-family: 'Times New Roman', serif;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
 
         header p {
@@ -72,64 +85,259 @@
 
         /* لافتة الترحيب الثابتة */
         .welcome-banner {
-            max-width: 800px;
-            margin: 30px auto 0 auto;
-            background: linear-gradient(45deg, var(--green-premium), #6b8e23);
+            background-color: var(--green-premium);
             color: #ffffff;
             padding: 15px;
-            border-radius: 10px;
             text-align: center;
             font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(85, 107, 47, 0.2);
-            position: relative;
-            z-index: 10;
+            font-size: 15px;
         }
 
         /* قصة البداية */
         .story-section {
-            max-width: 800px;
-            margin: 20px auto 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(85, 107, 47, 0.15);
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 10;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .story-section h2 {
             color: var(--green-premium);
             margin-top: 0;
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .story-section p {
-            color: var(--text-color);
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.8;
-            margin: 0 0 15px 0;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto 15px auto;
         }
 
         .story-section .thanks-msg {
             color: var(--gold-primary);
             font-weight: bold;
+        }
+
+        /* حاوية المحتوى الرئيسي المتجاوبة */
+        .container {
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* أقسام المعرض والاستمارة */
+        .gallery-section h2, .form-section h2 {
+            color: var(--green-premium);
+            border-bottom: 2px solid var(--green-premium);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .category-title {
+            color: var(--green-premium);
+            font-size: 15px;
+            margin: 25px 0 10px 0;
+            font-weight: bold;
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .demo-card {
+            background-color: var(--beige-accent);
+            border: 1px solid rgba(74, 93, 47, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-primary);
+        }
+
+        .demo-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .demo-card p {
+            text-align: center;
+            padding: 6px;
+            margin: 0;
+            font-size: 11px;
+            color: var(--green-premium);
+            font-weight: bold;
+        }
+
+        .custom-note {
+            font-size: 12px;
+            color: var(--green-premium);
+            background-color: rgba(74, 93, 47, 0.06);
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            border-right: 3px solid var(--green-premium);
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* قسم استمارة الطلب بيج ناعم ومستقل */
+        .form-section {
+            background-color: var(--beige-accent);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(74, 93, 47, 0.15);
+            height: fit-content;
+        }
+
+        .btn-example-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: #ffffff;
+            color: var(--green-premium);
+            border: 2px dashed var(--green-premium);
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--green-premium);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(74, 93, 47, 0.2);
+            background-color: #ffffff;
+            color: #000000;
+            box-sizing: border-box;
             font-size: 15px;
         }
 
-        /* حاوية المحتوى الرئيسي */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 40px;
-            position: relative;
-            z-index: 10;
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-premium);
         }
 
-        @media (max-width:
+        /* زر الإرسال */
+        .btn-submit {
+            width: 100%;
+            background: var(--green-premium);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* الخاتمة أسفل الصفحة */
+        .beautiful-closing {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--green-premium);
+            font-style: italic;
+            background-color: #ffffff;
+        }
+
+        /* نافذة التكبير */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--green-premium);
+            font-size: 12px;
+            font-weight: bold;
+            border-top: 1px solid #e2e8f0;
+            background-color: var(--beige-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="welcome-banner">
+            💌 مرحباً بكم في منصة e-Invitation الرسمية لعرض وطلب أرقى الدعوات الرقمية!
+        </div>
+
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="e-Invitation Logo">
+            </div>
+            <h1>e-Invitation</h1>
+            <p>DESIGNED BY Z & K</p>
+        </header>
+
+        <section class="story-section">
+            <h2>✨ حكايتنا وشغفنا</h2>
+            <p>
+                مرحباً بكم في عالمنا الخاص! مشروع <strong>
 
