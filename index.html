@@ -8,7 +8,7 @@
         /* الألوان والهوية البصرية الفاخرة والعصرية */
         :root {
             --bg-color: #0b1325;
-            --card-bg: rgba(17, 28, 52, 0.92);
+            --card-bg: rgba(11, 19, 37, 0.95); /* زيادة تعتيم الخلفية لضمان القراءة بوضوح */
             --gold-primary: #d4af37;
             --gold-secondary: #aa7c11;
             --text-color: #ffffff;
@@ -17,8 +17,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(rgba(11, 19, 37, 0.75), rgba(11, 19, 37, 0.85)), url('background.png') no-repeat center center fixed;
-            background-size: cover;
+            /* تم تعديل كيفية عرض الخلفية وتصغير حجم النمط ليتكرر بنجاح دون إخفاء المحتوى */
+            background: linear-gradient(rgba(11, 19, 37, 0.75), rgba(11, 19, 37, 0.85)), url('background.png') repeat center center fixed;
+            background-size: 320px; /* حجم مناسب جداً لظهور الزخرفة بشكل أنيق خلف النصوص */
             color: var(--text-color);
             margin: 0;
             padding: 0;
@@ -88,8 +89,10 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, rgba(17, 28, 52, 0.9) 0%, rgba(11, 19, 37, 0.6) 100%);
+            background: linear-gradient(180deg, rgba(17, 28, 52, 0.95) 0%, rgba(11, 19, 37, 0.8) 100%);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 10;
         }
 
         .logo-container {
@@ -128,13 +131,15 @@
         .story-section {
             max-width: 800px;
             margin: 30px auto 0 auto;
-            background: linear-gradient(135deg, rgba(17, 28, 52, 0.9) 0%, rgba(22, 36, 68, 0.9) 100%);
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
             border: 1px solid rgba(212, 175, 55, 0.25);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 10;
         }
 
         .story-section h2 {
@@ -169,6 +174,8 @@
             display: grid;
             grid-template-columns: 1.4fr 1fr;
             gap: 40px;
+            position: relative;
+            z-index: 10;
         }
 
         @media (max-width: 992px) {
@@ -206,14 +213,13 @@
         }
 
         .demo-card {
-            background-color: rgba(17, 28, 52, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            background-color: rgba(17, 28, 52, 0.95);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             position: relative;
-            backdrop-filter: blur(5px);
         }
 
         .demo-card:hover {
@@ -261,7 +267,7 @@
         .custom-note {
             font-size: 13px;
             color: #f1f5f9;
-            background-color: rgba(212, 175, 55, 0.15);
+            background-color: rgba(212, 175, 55, 0.25);
             margin-bottom: 25px;
             padding: 6px 12px;
             border-right: 3px solid var(--gold-primary);
@@ -278,10 +284,9 @@
             height: fit-content;
             position: sticky;
             top: 20px;
-            backdrop-filter: blur(10px);
         }
 
-        /* زر المعاينة الجديد الفاخر */
+        /* زر المعاينة */
         .btn-example-link {
             display: inline-flex;
             align-items: center;
@@ -295,3 +300,11 @@
             font-size: 15px;
             font-weight: bold;
             border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .btn-example-
+
