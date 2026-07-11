@@ -5,39 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام الألوان الفاخر المعتمد: أخضر فاتح وبيج مع تأثير الزجاج الشفاف */
+        /* نظام ألوان ملكي فاخر: أزرق ليلي داكن وذهبي براق */
         :root {
-            --green-dark: #3a4d28; 
-            --gold-accent: #aa7c11; 
-            --text-dark: #1e293b;
-            /* الشفافية الزجاجية المثالية لظهور الخلفية */
-            --glass-white: rgba(255, 255, 255, 0.45); 
-            --glass-beige: rgba(251, 249, 244, 0.55);
-            --glass-border: rgba(58, 77, 40, 0.2);
+            --bg-dark: #060b13; /* أزرق ملكي داكن جداً خلفي */
+            --gold-primary: #d4af37; /* ذهبي ملكي لامع */
+            --gold-secondary: #aa7c11; /* ذهبي عتيق للحدود */
+            --text-light: #ffffff; 
+            --text-muted: #cbd5e1;
+            /* تأثير الشفافية الزجاجية الداكنة الفخمة */
+            --glass-card: rgba(13, 22, 38, 0.82); 
+            --glass-border: rgba(212, 175, 55, 0.25);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-dark);
-            background-color: #f4f6f4;
-            /* تفعيل وإظهار صورة الخلفية الأصلية بشكل إجباري ومستقر */
-            background-image: url('background.png') !important;
-            background-repeat: repeat !important;
-            background-position: center top !important;
-            background-attachment: scroll !important;
-            background-size: 280px !important;
+            color: var(--text-light);
+            background-color: var(--bg-dark);
+            /* تفعيل صورة الخلفية المزخرفة بأمان لتظهر خلف المحتوى الفاخر */
+            background-image: url('background.png');
+            background-repeat: repeat;
+            background-position: center;
+            background-attachment: scroll;
+            background-size: 280px;
         }
 
-        /* الهيدر واللوقو شفاف وزجاجي */
+        /* الهيدر واللوقو زجاجي داكن فاخر */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: var(--glass-beige) !important;
-            border-bottom: 2px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(6, 11, 19, 0.85);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .logo-container {
@@ -45,10 +46,10 @@
             height: 140px;
             margin: 0 auto 15px auto;
             border-radius: 50%;
-            border: 3px solid var(--green-dark);
+            border: 2px solid var(--gold-primary);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(58, 77, 40, 0.15);
-            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            background-color: #0d1626;
         }
 
         .logo-container img {
@@ -60,30 +61,31 @@
         header h1 {
             margin: 5px 0;
             font-size: 32px;
-            color: var(--green-dark);
+            color: var(--gold-primary);
             font-family: 'Times New Roman', serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         header p {
             margin: 0;
-            color: var(--gold-accent);
+            color: var(--text-muted);
             font-size: 14px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
-        /* قسم قصة البداية زجاجي شفاف ناعم */
+        /* قسم قصة البداية الفاخر */
         .story-section {
             padding: 40px 20px;
             text-align: center;
-            background-color: var(--glass-white) !important;
+            background-color: var(--glass-card);
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .story-section h2 {
-            color: var(--green-dark);
+            color: var(--gold-primary);
             margin-top: 0;
             font-size: 24px;
         }
@@ -91,35 +93,34 @@
         .story-section p {
             font-size: 16px;
             line-height: 1.8;
-            color: var(--text-dark);
+            color: var(--text-muted);
             max-width: 750px;
             margin: 0 auto 20px auto;
-            font-weight: bold;
         }
 
         .story-section .thanks-msg {
-            color: var(--gold-accent);
+            color: var(--gold-primary);
             font-weight: bold;
             margin-bottom: 25px;
             display: block;
         }
 
-        /* بطاقة الرسالة التفاعلية زجاجية بيج فخمة */
+        /* بطاقة الرسالة التفاعلية المفتوحة الفاخرة */
         .real-letter-card {
-            background-color: rgba(251, 249, 244, 0.45) !important;
-            border: 2px solid var(--gold-accent);
+            background-color: rgba(6, 11, 19, 0.75);
+            border: 2px solid var(--gold-primary);
             border-radius: 15px;
             padding: 25px 20px;
             max-width: 450px;
             margin: 20px auto 0 auto;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(170, 124, 17, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .real-letter-card h3 {
-            color: var(--green-dark);
+            color: var(--gold-primary);
             margin: 0 0 10px 0;
             font-size: 18px;
             display: flex;
@@ -131,26 +132,30 @@
         .real-letter-card p {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: var(--text-muted);
             margin-bottom: 20px;
-            font-weight: bold;
         }
 
         .btn-go-example {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--green-dark);
-            color: #ffffff;
+            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            color: #060b13;
             padding: 12px 25px;
             font-size: 15px;
             font-weight: bold;
             border-radius: 6px;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s;
         }
 
-        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
+        .btn-go-example:hover {
+            transform: translateY(-2px);
+        }
+
+        /* حاوية تنظيم المحتوى الرئيسي */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -168,14 +173,15 @@
         }
 
         .gallery-section h2, .form-section h2 {
-            color: var(--green-dark);
-            border-bottom: 2px solid var(--green-dark);
+            color: var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
             padding-bottom: 8px;
             margin-bottom: 25px;
             font-size: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* أزرار التصفح زجاجية وشفافة */
+        /* أزرار التصفح الذكية */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -185,8 +191,8 @@
         }
 
         .tab-btn {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: var(--text-dark);
+            background-color: rgba(13, 22, 38, 0.6);
+            color: var(--text-muted);
             border: 1px solid var(--glass-border);
             padding: 10px 20px;
             font-size: 14px;
@@ -194,14 +200,13 @@
             border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background-color: var(--green-dark);
-            color: #ffffff;
-            border-color: var(--green-dark);
+            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            color: #060b13;
+            border-color: var(--gold-primary);
         }
 
         .tab-content {
@@ -219,17 +224,22 @@
             margin-bottom: 15px;
         }
 
-        /* بطاقات المعرض زجاجية شفافة تعكس ما وراءها */
+        /* بطاقات المعرض الفاخرة */
         .demo-card {
-            background-color: rgba(255, 255, 255, 0.45) !important;
+            background-color: var(--glass-card); 
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             transition: transform 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-primary);
         }
 
         .demo-card img {
@@ -244,33 +254,31 @@
             padding: 8px;
             margin: 0;
             font-size: 12px;
-            color: var(--green-dark);
+            color: var(--gold-primary);
             font-weight: bold;
-            background-color: rgba(251, 249, 244, 0.5);
+            background-color: rgba(6, 11, 19, 0.85);
         }
 
         .custom-note {
             font-size: 13px;
-            color: var(--green-dark);
-            background-color: rgba(74, 93, 47, 0.12);
+            color: var(--gold-primary);
+            background-color: rgba(212, 175, 55, 0.1);
             padding: 12px;
-            border-right: 4px solid var(--green-dark);
+            border-right: 4px solid var(--gold-primary);
             border-radius: 0 4px 4px 0;
             margin-top: 15px;
             font-weight: bold;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* استمارة طلب زجاجية ومضمونة */
+        /* قسم استمارة الطلب الزجاجي الداكن الفاخر */
         .form-section {
-            background-color: var(--glass-beige) !important; 
+            background-color: var(--glass-card); 
             padding: 30px 25px;
             border-radius: 14px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(58, 77, 40, 0.05);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
             height: fit-content;
         }
 
@@ -284,31 +292,32 @@
             margin-bottom: 8px;
             font-size: 15px;
             font-weight: bold;
-            color: var(--green-dark);
+            color: var(--gold-primary);
         }
 
-        /* حقول الإدخال شفافة ناعمة وبمظهر عصري */
+        /* حقول الإدخال الشفافة الفاخرة */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid rgba(58, 77, 40, 0.25);
-            background-color: rgba(255, 255, 255, 0.55); 
-            color: #000000;
+            border: 1px solid var(--glass-border);
+            background-color: rgba(6, 11, 19, 0.6); 
+            color: #ffffff;
             box-sizing: border-box;
             font-size: 16px;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--green-dark);
-            background-color: #ffffff;
+            border-color: var(--gold-primary);
+            background-color: rgba(13, 22, 38, 0.9);
         }
 
+        /* زر الإرسال عبر الواتساب الذهبي */
         .btn-submit {
             width: 100%;
-            background-color: var(--green-dark);
-            color: #ffffff;
+            background: linear-gradient(45deg, var(--gold-secondary), var(--gold-primary));
+            color: #060b13;
             border: none;
             padding: 15px;
             font-size: 18px;
@@ -319,17 +328,238 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* الخاتمة أسفل الصفحة زجاجية */
+        /* الخاتمة أسفل الصفحة */
         .beautiful-closing {
             text-align: center;
             padding: 45px 20px;
             font-size: 18px;
             font-weight: bold;
-            color: var(--green-dark);
+            color: var(--gold-primary);
             font-style: italic;
-            background-color: rgba(255, 255, 255, 0.6);
-            border-top: 1
+            background-color: rgba(6, 11, 19, 0.85);
+            border-top: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+        }
+
+        /* نافذة التكبير (Lightbox) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.93);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 92%;
+            max-height: 82%;
+            border: 2px solid var(--gold-primary);
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px; right: 25px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--glass-border);
+            background-color: rgba(6, 11, 19, 0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="e-Invitation Logo">
+        </div>
+        <h1>e-Invitation</h1>
+        <p>DESIGNED BY Z & K</p>
+    </header>
+
+    <section class="story-section">
+        <h2>✨ حكايتنا وشغفنا</h2>
+        <p>
+            مرحباً بكم في عالمنا الخاص! مشروع <strong>e-Invitation</strong> هو ثمرة قصة حب وشغف جمعتنا كزوجين (Z & K). قررنا معاً أن ندمج لمستنا الفنية وخبرتنا التقنية لنحول مناسباتكم السعيدة إلى مواقع إلكترونية تفاعلية، عصرية وفاخرة تليق بأفراحكم.
+        </p>
+        <span class="thanks-msg">🤝 شكراً لثقتكم ومساندتكم لبدايتنا!</span>
+        
+        <div class="real-letter-card">
+            <h3>✉️ عيّنة حيّة من أعمالنا</h3>
+            <p>شاهدوا مثالاً تفاعلياً وحقيقياً لكيفية تصميم وعرض دعواتنا الإلكترونية الفاخرة عبر الرابط التالي:</p>
+            <a href="https://zkdesign96-png.github.io/Exemple-/" target="_blank" class="btn-go-example">
+                🔗 فتح نموذج المعاينة التفاعلي
+            </a>
+        </div>
+    </section>
+
+    <div class="main-content">
+        
+        <div class="gallery-section">
+            <h2>✨ معرض تصاميمنا الحصرية (اضغط لتكبير الصورة)</h2>
+            
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab(event, 'wedding')">💍 زفاف</button>
+                <button class="tab-btn" onclick="switchTab(event, 'graduation')">🎓 تخرج</button>
+                <button class="tab-btn" onclick="switchTab(event, 'circumcision')">✂️ ختان</button>
+                <button class="tab-btn" onclick="switchTab(event, 'birthday')">🎂 أعياد ميلاد</button>
+            </div>
+            
+            <div id="wedding" class="tab-content active">
+                <div class="grid-gallery">
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo.png" alt="زفاف" loading="lazy"><p>نموذج 1</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo1.png" alt="زفاف" loading="lazy"><p>نموذج 2</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo2.png" alt="زفاف" loading="lazy"><p>نموذج 3</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo3.png" alt="زفاف" loading="lazy"><p>نموذج 4</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo4.png" alt="زفاف" loading="lazy"><p>نموذج 5</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="wedding-demo5.png" alt="زفاف" loading="lazy"><p>نموذج 6</p></div>
+                </div>
+                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+            </div>
+
+            <div id="graduation" class="tab-content">
+                <div class="grid-gallery">
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo.jpg" alt="تخرج" loading="lazy"><p>نموذج 1</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo1.jpg" alt="تخرج" loading="lazy"><p>نموذج 2</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="graduation-demo2.jpg" alt="تخرج" loading="lazy"><p>نموذج 3</p></div>
+                </div>
+                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+            </div>
+
+            <div id="circumcision" class="tab-content">
+                <div class="grid-gallery">
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="circumcision-demo.jpg" alt="ختان" loading="lazy"><p>نموذج 1</p></div>
+                </div>
+                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+            </div>
+
+            <div id="birthday" class="tab-content">
+                <div class="grid-gallery">
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo.jpg" alt="عيد ميلاد" loading="lazy"><p>نموذج 1</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo1.jpg" alt="عيد ميلاد" loading="lazy"><p>نموذج 2</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo2.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 3</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo3.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 4</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo4.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 5</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo5.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 6</p></div>
+                    <div class="demo-card" onclick="openLightbox(this)"><img src="birthday-demo6.png" alt="عيد ميلاد" loading="lazy"><p>نموذج 7</p></div>
+                </div>
+                <div class="custom-note">✨ متوفر العديد من التصاميم الأخرى الحصرية.. نُصمّمها بالكامل حسب طلبكم ورغبتكم!</div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>📥 اطلب تصميمك الآن</h2>
+            <form id="invitationForm">
+                <div class="form-group">
+                    <label for="fullName">الاسم واللقب:</label>
+                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="occasion">نوع المناسبة:</label>
+                    <select id="occasion" required>
+                        <option value="" disabled selected>اختر نوع المناسبة...</option>
+                        <option value="دعوة زفاف">دعوة زفاف</option>
+                        <option value="دعوة تخرج">دعوة تخرج</option>
+                        <option value="دعوة ختان">دعوة ختان</option>
+                        <option value="دعوة عيد ميلاد">دعوة عيد ميلاد</option>
+                        <option value="دعوة اجتماع">دعوة اجتماع</option>
+                        <option value="دعوة عمل">دعوة عمل</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">تفاصيل إضافية (التاريخ، المكان، أو ملاحظات خاصة):</label>
+                    <textarea id="details" rows="4" placeholder="اكتب هنا أي معلومات تود إضافتها في الموقع..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    أرسل الطلب عبر الواتساب 💬
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="beautiful-closing">
+        "لأنّ لكلّ قصة بداية متميزة، دعونا نخلّد تفاصيل فرحتكم بأبهى حُلّة رقمية ✨🤍"
+    </div>
+
+    <footer>
+        &copy; 2026 e-Invitation (Z & K). جميع الحقوق محفوظة.
+    </footer>
+
+    <div id="imageLightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="صورة مكبرة">
+    </div>
+
+    <script>
+        function switchTab(e, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            e.currentTarget.classList.add('active');
+        }
+
+        function openLightbox(element) {
+            const imgTarget = element.getElementsByTagName('img')[0];
+            if(imgTarget) {
+                document.getElementById('lightboxImg').src = imgTarget.src;
+                document.getElementById('imageLightbox').style.display = 'flex';
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('imageLightbox').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const lightbox = document.getElementById('imageLightbox');
+            if (event.target == lightbox) {
+                lightbox.style.display = 'none';
+            }
+        }
+
+        document.getElementById('invitationForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const fullName = document.getElementById('fullName').value;
+            const occasion = document.getElementById('occasion').value;
+            const details = document.getElementById('details').value || "لا توجد تفاصيل إضافية";
+
+            const whatsappNumber = "213554694328"; 
+
+            const message = `✨ *طلب دعوة إلكترونية جديدة* ✨%0A%0A` +
+                            `👤 *الاسم واللقب:* ${encodeURIComponent(fullName)}%0A` +
+                            `🎉 *نوع المناسبة:* ${encodeURIComponent(occasion)}%0A` +
+                            `📝 *التفاصيل:* ${encodeURIComponent(details)}%0A%0A` +
+                            `🚀 تم إرسال الطلب عبر موقع e-Invitation`;
+
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
 
