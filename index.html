@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Invitation | طلب دعوة إلكترونية فاخرة</title>
     <style>
-        /* نظام ألوان شفاف وناعم: أخضر فاتح وبيج مع تأثير الزجاج (cite: Glassmorphism) */
+        /* نظام الألوان الفاخر المعتمد: أخضر فاتح وبيج مع تأثير الزجاج الشفاف */
         :root {
             --green-dark: #3a4d28; 
             --gold-accent: #aa7c11; 
             --text-dark: #1e293b;
-            /* خانات شفافة وأنيقة (cite: 7) */
-            --glass-bg: rgba(255, 255, 255, 0.65); 
-            --glass-beige: rgba(251, 249, 244, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.55); 
+            --glass-beige: rgba(251, 249, 244, 0.75);
             --glass-border: rgba(58, 77, 40, 0.15);
         }
 
@@ -21,23 +20,22 @@
             margin: 0;
             padding: 0;
             color: var(--text-dark);
-            /* تم إصلاح كود الخلفية هنا وفصله لضمان ظهوره على قع الهواتف (cite: 7) */
             background-color: #f4f6f4;
             background-image: url('background.png');
             background-repeat: repeat;
             background-position: center;
-            background-attachment: scroll; /* جعلها تتجاوب مع حركة اليد (cite: 7) */
+            background-attachment: scroll; 
             background-size: 280px;
         }
 
-        /* الهيدر واللوقو شفاف */
+        /* الهيدر وخلفية اللوقو أصبحت زجاجية شفافة بالكامل */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-color: rgba(251, 249, 244, 0.9);
+            background-color: rgba(251, 249, 244, 0.75);
             border-bottom: 2px solid var(--glass-border);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .logo-container {
@@ -72,7 +70,7 @@
             letter-spacing: 1px;
         }
 
-        /* قسم حكايتنا شفاف وبمظهر زجاجي */
+        /* قسم قصة البداية زجاجي شفاف */
         .story-section {
             padding: 40px 20px;
             text-align: center;
@@ -104,17 +102,18 @@
             display: block;
         }
 
-        /* بطاقة الرسالة التفاعلية الشفافة والمفتوحة */
+        /* بطاقة الرسالة التفاعلية أصبحت زجاجية فخمة وشفافة تماماً */
         .real-letter-card {
-            background: linear-gradient(135deg, rgba(251, 249, 244, 0.9) 0%, rgba(243, 238, 225, 0.9) 100%);
+            background-color: rgba(251, 249, 244, 0.7);
             border: 2px solid var(--gold-accent);
             border-radius: 15px;
             padding: 25px 20px;
             max-width: 450px;
             margin: 20px auto 0 auto;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(170, 124, 17, 0.1);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(170, 124, 17, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .real-letter-card h3 {
@@ -148,7 +147,7 @@
             box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
         }
 
-        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة (cite: 7) */
+        /* حاوية تنظيم المحتوى الرئيسي المتجاوبة */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -173,7 +172,7 @@
             font-size: 20px;
         }
 
-        /* أزرار التصفح شفاف وبمظهر عصري */
+        /* أزرار التصفح الذكية للتبويب شفاف وأنيق */
         .tabs-container {
             display: flex;
             gap: 8px;
@@ -216,7 +215,7 @@
             margin-bottom: 15px;
         }
 
-        /* جعل بطاقات التصاميم شفافة بالكامل (cite: 7) */
+        /* جعل بطاقات التصاميم شفافة */
         .demo-card {
             background-color: var(--glass-bg); 
             border: 1px solid var(--glass-border);
@@ -227,6 +226,11 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             transition: transform 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-accent);
         }
 
         .demo-card img {
@@ -258,7 +262,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* جعل قسم استمارة الطلب شفافاً وزجاجياً فخماً جداً */
+        /* جعل قسم استمارة الطلب شفافاً وزجاجياً */
         .form-section {
             background-color: var(--glass-beige); 
             padding: 30px 25px;
@@ -283,7 +287,7 @@
             color: var(--green-dark);
         }
 
-        /* حقول إدخال شفافة ناعمة وبمظهر زجاجي */
+        /* حقول إدخال شفافة ناعمة */
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px;
@@ -296,6 +300,36 @@
             backdrop-filter: blur(5px);
         }
 
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-dark);
+            background-color: #ffffff;
+        }
+
+        /* زر إرسال الواتساب (مستعاد بوضوح كامل) */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--green-dark);
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(58, 77, 40, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        /* الخاتمة أسفل الصفحة */
         .beautiful-closing {
             text-align: center;
             padding: 45px 20px;
@@ -308,7 +342,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* نافذة التكبير باللمس الفوري المحمية */
+        /* نافذة التكبير الكبيرة المحمية لتعمل على الهواتف إجبارياً */
         .lightbox {
             display: none;
             position: fixed;
@@ -324,6 +358,7 @@
             max-height: 82%;
             border: 2px solid #ffffff;
             border-radius: 8px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.25);
         }
 
         .lightbox-close {
@@ -449,5 +484,79 @@
 
                 <div class="form-group">
                     <label for="details">تفاصيل إضافية (التاريخ، المكان، أو ملاحظات خاصة):</label>
-                    <textarea id="details" rows="4" placeholder="اكتب هنا أي معلومات تود إضافتها في الموقع..."></
+                    <textarea id="details" rows="4" placeholder="اكتب هنا أي معلومات تود إضافتها في الموقع..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    أرسل الطلب عبر الواتساب 💬
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="beautiful-closing">
+        "لأنّ لكلّ قصة بداية متميزة، دعونا نخلّد تفاصيل فرحتكم بأبهى حُلّة رقمية ✨🤍"
+    </div>
+
+    <footer>
+        &copy; 2026 e-Invitation (Z & K). جميع الحقوق محفوظة.
+    </footer>
+
+    <div id="imageLightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="صورة مكبرة">
+    </div>
+
+    <script>
+        function switchTab(e, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            e.currentTarget.classList.add('active');
+        }
+
+        // دالة التكبير المصلحة لتعمل فوراً باللمس
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('imageLightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('imageLightbox').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const lightbox = document.getElementById('imageLightbox');
+            if (event.target == lightbox) {
+                lightbox.style.display = 'none';
+            }
+        }
+
+        document.getElementById('invitationForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const fullName = document.getElementById('fullName').value;
+            const occasion = document.getElementById('occasion').value;
+            const details = document.getElementById('details').value || "لا توجد تفاصيل إضافية";
+
+            const whatsappNumber = "213554694328"; 
+
+            const message = `✨ *طلب دعوة إلكترونية جديدة* ✨%0A%0A` +
+                            `👤 *الاسم واللقب:* ${encodeURIComponent(fullName)}%0A` +
+                            `🎉 *نوع المناسبة:* ${encodeURIComponent(occasion)}%0A` +
+                            `📝 *التفاصيل:* ${encodeURIComponent(details)}%0A%0A` +
+                            `🚀 تم إرسال الطلب عبر موقع e-Invitation`;
+
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
 
